@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Nifty.org - Semantic Story Cleaner
 // @namespace    https://github.com/LeHungryBoi/nifty-clean-up-js
-// @version      3.6
-// @description  Mobile-optimized font sizes, responsive padding, and semantic refactoring.
+// @version      3.7
+// @description  Adds semantic paragraphs, first-line indent, and mobile-optimized typography.
 // @author       LeHungryBoi
 // @match        https://www.nifty.org/nifty/*
 // @match        https://nifty.org/nifty/*
@@ -54,31 +54,34 @@
             width: 100% !important;
             max-width: none !important;
             box-sizing: border-box !important;
-            /* 移动端默认字号调小 */
             font-size: 1rem !important; 
             line-height: 1.65 !important;
             font-family: Georgia, serif !important;
             padding: 8px 2px !important; 
-            -webkit-text-size-adjust: 100%; /* 防止 iOS 自动放大字体 */
+            -webkit-text-size-adjust: 100%;
         }
 
         article#story-content {
             width: 100%;
-            max-width: 850px; /* 稍微收窄一点，增加阅读沉浸感 */
+            max-width: 850px;
             margin: 0 auto;
         }
 
         p {
-            margin-bottom: 1.4em !important;
+            margin-bottom: 1.2em !important; /* 缩进后可以稍微减小段间距，更像书籍 */
             display: block !important;
+            /* 首行缩进：2个字符宽度 */
+            text-indent: 2em !important;
         }
 
-        /* 桌面端/大屏幕：字号稍微加大，增加边距 */
         @media (min-width: 768px) {
             html, body {
                 font-size: 1.12rem !important;
                 line-height: 1.8 !important;
                 padding: 20px 40px !important;
+            }
+            p {
+                text-indent: 2.5em !important; /* 桌面端稍微加大一点点缩进 */
             }
         }
 
@@ -90,5 +93,5 @@
         }
     `;
     document.head.appendChild(style);
-    console.log('✅ Nifty script v3.5 (Font & Padding Optimized) loaded');
+    console.log('✅ Nifty script v3.6 (Indented Paragraphs) loaded');
 })();
