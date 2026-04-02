@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Nifty.org - Semantic Story Cleaner
 // @namespace    https://github.com/LeHungryBoi/nifty-clean-up-js
-// @version      3.5
-// @description  Removes fake line breaks, wraps paragraphs in <p> tags, and adds responsive padding.
+// @version      3.6
+// @description  Mobile-optimized font sizes, responsive padding, and semantic refactoring.
 // @author       LeHungryBoi
 // @match        https://www.nifty.org/nifty/*
 // @match        https://nifty.org/nifty/*
@@ -27,7 +27,6 @@
         if (!pre) return;
 
         let text = pre.textContent;
-        // Fix hard returns while keeping double-newlines
         text = text.replace(/(\S)\n(\S)/g, '$1 $2');
         text = text.replace(/ +/g, ' ');
 
@@ -55,28 +54,31 @@
             width: 100% !important;
             max-width: none !important;
             box-sizing: border-box !important;
-            font-size: 1.1em !important;
-            line-height: 1.78 !important;
+            /* 移动端默认字号调小 */
+            font-size: 1rem !important; 
+            line-height: 1.65 !important;
             font-family: Georgia, serif !important;
-            /* 默认手机端：极窄边距 */
-            padding: 4px 4px !important; 
+            padding: 8px 2px !important; 
+            -webkit-text-size-adjust: 100%; /* 防止 iOS 自动放大字体 */
         }
 
         article#story-content {
             width: 100%;
-            max-width: 900px;
+            max-width: 850px; /* 稍微收窄一点，增加阅读沉浸感 */
             margin: 0 auto;
         }
 
         p {
-            margin-bottom: 1.6em !important;
+            margin-bottom: 1.4em !important;
             display: block !important;
         }
 
-        /* 针对桌面端或宽屏：恢复更舒适的边距 */
+        /* 桌面端/大屏幕：字号稍微加大，增加边距 */
         @media (min-width: 768px) {
             html, body {
-                padding: 20px 30px !important;
+                font-size: 1.12rem !important;
+                line-height: 1.8 !important;
+                padding: 20px 40px !important;
             }
         }
 
@@ -88,5 +90,5 @@
         }
     `;
     document.head.appendChild(style);
-    console.log('✅ Nifty script v3.4 (Mobile Padding Optimized) loaded');
+    console.log('✅ Nifty script v3.5 (Font & Padding Optimized) loaded');
 })();
