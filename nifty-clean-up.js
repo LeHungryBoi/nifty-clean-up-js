@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         Nifty.org - Semantic Story Cleaner
 // @namespace    https://github.com/LeHungryBoi/nifty-clean-up-js
-// @version      3.7
-// @description  Adds semantic paragraphs, first-line indent, and mobile-optimized typography.
+// @version      3.8
+// @description  Adds semantic paragraphs, indent, and compact line-height for better readability.
 // @author       LeHungryBoi
 // @match        https://www.nifty.org/nifty/*
 // @match        https://nifty.org/nifty/*
@@ -44,7 +44,7 @@
         });
 
         pre.parentNode.replaceChild(article, pre);
-        console.log(`✅ Text refactored: ${paragraphBlocks.length} paragraphs.`);
+        console.log(`✅ Text refactored: ${paragraphBlocks.length} paragraphs generated.`);
     }
 
     const style = document.createElement('style');
@@ -55,7 +55,8 @@
             max-width: none !important;
             box-sizing: border-box !important;
             font-size: 1rem !important; 
-            line-height: 1.65 !important;
+            /* 移动端紧凑行高 */
+            line-height: 1.45 !important;
             font-family: Georgia, serif !important;
             padding: 8px 2px !important; 
             -webkit-text-size-adjust: 100%;
@@ -68,20 +69,22 @@
         }
 
         p {
-            margin-bottom: 1.2em !important; /* 缩进后可以稍微减小段间距，更像书籍 */
+            /* 配合紧凑行高，稍微缩小段间距 */
+            margin-bottom: 0.8em !important;
             display: block !important;
-            /* 首行缩进：2个字符宽度 */
             text-indent: 2em !important;
         }
 
         @media (min-width: 768px) {
             html, body {
-                font-size: 1.12rem !important;
-                line-height: 1.8 !important;
+                font-size: 1.1rem !important;
+                /* 桌面端稍微放松一点点，但依然保持紧凑 */
+                line-height: 1.6 !important;
                 padding: 20px 40px !important;
             }
             p {
-                text-indent: 2.5em !important; /* 桌面端稍微加大一点点缩进 */
+                margin-bottom: 1em !important;
+                text-indent: 2.5em !important;
             }
         }
 
@@ -93,5 +96,5 @@
         }
     `;
     document.head.appendChild(style);
-    console.log('✅ Nifty script v3.6 (Indented Paragraphs) loaded');
+    console.log('✅ Nifty script v3.8 (Compact Line-height) loaded');
 })();
