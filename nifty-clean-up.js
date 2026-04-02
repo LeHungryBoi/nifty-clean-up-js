@@ -1,10 +1,15 @@
 // ==UserScript==
-// @name         Nifty.org - Semantic Paragraphs (Dark Mode Friendly)
-// @version      3.2
+// @name         Nifty.org - Semantic Story Cleaner
+// @namespace    https://github.com/LeHungryBoi/nifty-clean-up-js
+// @version      3.3
+// @description  Removes fake line breaks, wraps paragraphs in <p> tags, and adds dark mode for a modern reading experience.
+// @author       LeHungryBoi
 // @match        https://www.nifty.org/nifty/*
 // @match        https://nifty.org/nifty/*
 // @grant        none
 // @run-at       document-end
+// @updateURL    https://raw.githubusercontent.com/LeHungryBoi/nifty-clean-up-js/main/nifty-clean-up.js
+// @downloadURL  https://raw.githubusercontent.com/LeHungryBoi/nifty-clean-up-js/main/nifty-clean-up.js
 // ==/UserScript==
 
 (function () {
