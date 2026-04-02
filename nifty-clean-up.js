@@ -59,7 +59,7 @@
             line-height: 1.78 !important;
             font-family: Georgia, serif !important;
             /* 默认手机端：极窄边距 */
-            padding: 10px 2px !important; 
+            padding: 4px 4px !important; 
         }
 
         article#story-content {
