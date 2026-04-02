@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Nifty.org - Semantic Story Cleaner
 // @namespace    https://github.com/LeHungryBoi/nifty-clean-up-js
-// @version      3.41
+// @version      3.5
 // @description  Removes fake line breaks, wraps paragraphs in <p> tags, and adds responsive padding.
 // @author       LeHungryBoi
 // @match        https://www.nifty.org/nifty/*
